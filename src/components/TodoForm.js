@@ -28,7 +28,7 @@ class TodoForm extends React.Component {
                     <h1>Todo List:</h1>
                     <input
                         name = 'ListItem'
-                        value = {this.props.toDoList}
+                        value = {this.state.toDoList.Task}
                         type = 'text'
                         onChange = {this.onChange}
                     />
