@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 //------- import components ---------
 import Todo from './components/Todo.js'
 import TodoForm from './components/TodoForm'
+import TodoList from './components/ToDoList'
+
 
 
 const toDoList = []
@@ -19,15 +21,14 @@ class App extends React.Component {
     }
   }
 
-  inputChange = (value) => {
+  handleAddItem = (name) => {
     this.setState({
       toDoList:[...this.state.toDoList, {
-        Task: value,
+        task: name,
         id: "",
         completed: false
       }]
     })
-    console.log(this.state)
   }
   
   // design `App` to be the parent component of your application.
@@ -39,8 +40,8 @@ class App extends React.Component {
 
         {/* rendering components */}
         <Todo/>
-        <TodoForm inputChange={this.inputChange} toDoList={this.state.toDoList}/>
-        
+        <TodoForm handleAddItem={this.handleAddItem} toDoList={this.state.toDoList}/>
+        <TodoList List={this.state.toDoList}/>
 
       </div>
     );
